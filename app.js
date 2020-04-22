@@ -22,7 +22,7 @@ mongoose.connect('mongodb+srv://dhanumdp:mcadhanu@dhanumdp-brslm.mongodb.net/MXC
 
 app.get('/',(req,res)=>{
 
- res.send("Oombu da Punda !!");
+ res.send("Android Lab Package");
 })
 
 
@@ -53,7 +53,7 @@ app.post('/student/register',(req,res)=>{
                         }
                         else
                         {
-                            res.json('Registration Error'+err);
+                            res.send('Registration Error'+err);
                             console.log('Registration Error'+err);
                         }
                 })
@@ -74,7 +74,7 @@ collection.find({'Roll_No':rollno}).count((err,num)=>{
     if(num ==0)
     {
         
-        res.json(rollno+' Not yet Registered');
+        res.send(rollno+' Not yet Registered');
         console.log('Student Not Found');
     }
     else
@@ -82,12 +82,12 @@ collection.find({'Roll_No':rollno}).count((err,num)=>{
         collection.findOne({'Roll_No':rollno},(error,docs)=>{
             if(docs.Password != password)
             {
-                res.json('Password Incorrect');
+                res.send('Password Incorrect');
                 console.log('Password Incorrect');
             }
             else
             {
-                res.json('Hi '+docs.Name+' You are logged in !!');
+                res.send('Success');
                 console.log('Hi '+docs.Name+' You are logged in !!');
             }
         })
