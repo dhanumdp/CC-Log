@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var app=express();
 var port = process.env.PORT || 3000;
 
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 mongoose.connect('mongodb+srv://dhanumdp:mcadhanu@dhanumdp-brslm.mongodb.net/MXCC?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology:true }, (err)=>{
@@ -25,6 +26,8 @@ app.get('/',(req,res)=>{
  res.send("Android Lab Package");
 })
 
+
+//student registration
 
 app.post('/student/register',(req,res)=>{
 
@@ -63,6 +66,8 @@ app.post('/student/register',(req,res)=>{
 
 });
 
+//student login
+
 app.post('/student/login',(req,res)=>{
 
 var collection = mongoose.connection.db.collection('Users');
@@ -95,3 +100,59 @@ collection.find({'Roll_No':rollno}).count((err,num)=>{
 })
 
 });
+
+
+//student attendance entry
+
+
+const {Attendance} = require('./attendance');
+
+app.post('/student/attendance',(req,res)=>{
+
+    // var collection = mongoose.connection.db.collection("Attendance");
+    Attendance.find({'date':req.body.date, 'rollno':req.body.rollno}).count((err,doc)=>{
+        if(doc != 0)
+        {
+        console.log("Already Checked In");
+        Attendance.update({'date':req.body.date,'roll':req.body.roll},{$set:{'checkOut':req.body.time}},(error,doc)=>{
+            if(!error)
+            {
+                res.send('Checked Out at '+req.body.time);
+            }
+            else
+            {
+                res.send('Error while Checking Out.');
+            }
+        })
+
+       
+    }
+    else
+    {
+
+        console.log("New Attendance Entry");
+        let atd = new Attendance({
+            date : req.body.date,
+            rollno : req.body.rollno,
+            checkIn : req.body.time,
+            checkOut : "",
+        })
+
+        atd.save((err)=>{
+            if(!err)
+            {
+                res.send(req.body.rollno +"Checked In at "+req.body.time);
+            }
+            else
+            {
+                res.send('Error while Checking In' + err);
+            }
+        })
+
+    }
+
+})
+
+})
+
+
