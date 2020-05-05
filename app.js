@@ -34,8 +34,8 @@ app.post('/student/register',(req,res)=>{
     var collection = mongoose.connection.db.collection('Users');
 
     let user={
-        Name : req.body.Name,
-        Roll_No : req.body.Roll_No.toLowerCase(),
+        Name : req.body.Name.toUpperCase,
+        Roll_No : req.body.Roll_No.toUpperCase(),
         Password : req.body.Password
     }
 
@@ -72,7 +72,7 @@ app.post('/student/login',(req,res)=>{
 
 var collection = mongoose.connection.db.collection('Users');
 
-var rollno = req.body.Roll_No.toLowerCase();
+var rollno = req.body.Roll_No.toUpperCase();
 var password = req.body.Password;
 
 collection.find({'Roll_No':rollno}).count((err,num)=>{
@@ -100,6 +100,21 @@ collection.find({'Roll_No':rollno}).count((err,num)=>{
 })
 
 });
+
+
+//getDetails
+
+app.post('/student/getDetails',(req,res)=>{
+    var collection = mongoose.connection.db.collection('Users');
+
+    var rollno = req.body.Roll_No.toUpperCase();
+        {
+            collection.findOne({'Roll_No':rollno},(error,docs)=>{
+              res.send(docs.Name);
+            })
+        }
+    })
+    
 
 
 //student attendance entry
