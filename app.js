@@ -34,7 +34,7 @@ app.post('/student/register',(req,res)=>{
     var collection = mongoose.connection.db.collection('Users');
 
     let user={
-        Name : req.body.Name.toUpperCase,
+        Name : req.body.Name.toUpperCase(),
         Roll_No : req.body.Roll_No.toUpperCase(),
         Password : req.body.Password
     }
