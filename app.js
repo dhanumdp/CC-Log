@@ -175,7 +175,7 @@ app.post('/student/putAttendance',(req,res)=>{
 
 app.post('/student/getAttendance',(req,res)=>{
 
-        Attendance.find({'date':req.body.date, 'roll':req.body.rollno}, (err,doc)=>{
+        Attendance.find({'date':req.body.date, 'rollno':req.body.rollno}, (err,doc)=>{
             if(err)
             {
                 res.send('Error')
@@ -185,5 +185,4 @@ app.post('/student/getAttendance',(req,res)=>{
                 res.send(doc);
             }
         })
-
 })
