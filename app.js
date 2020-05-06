@@ -122,14 +122,14 @@ app.post('/student/getDetails',(req,res)=>{
 
 const {Attendance} = require('./attendance');
 
-app.post('/student/attendance',(req,res)=>{
+app.post('/student/putAttendance',(req,res)=>{
 
     // var collection = mongoose.connection.db.collection("Attendance");
     Attendance.find({'date':req.body.date, 'rollno':req.body.rollno}).count((err,doc)=>{
         if(doc != 0)
         {
         console.log("Already Checked In");
-        Attendance.update({'date':req.body.date,'roll':req.body.roll},{$set:{'checkOut':req.body.time}},(error,doc)=>{
+        Attendance.update({'date':req.body.date,'rollno':req.body.rollno},{$set:{'checkOut':req.body.time}},(error,doc)=>{
             if(!error)
             {
                 res.send('Checked Out at '+req.body.time);
@@ -171,3 +171,19 @@ app.post('/student/attendance',(req,res)=>{
 })
 
 
+//get student attendace
+
+app.post('/student/getAttendance',(req,res)=>{
+
+        Attendance.find({'date':req.body.date, 'roll':req.body.rollno}, (err,doc)=>{
+            if(err)
+            {
+                res.send('Error')
+            }
+            else
+            {
+                res.send(doc);
+            }
+        })
+
+})
