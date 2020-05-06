@@ -149,6 +149,7 @@ app.post('/student/putAttendance',(req,res)=>{
         let atd = new Attendance({
             date : req.body.date,
             rollno : req.body.rollno,
+            reason : req.body.reason,
             checkIn : req.body.time,
             checkOut : "",
         })

@@ -9,6 +9,10 @@ const Attendance = mongoose.model('Attendance',{
         type : String,
         required : true
     },
+    reason:{
+        type : String,
+    },
+    
     checkIn : {
         type : String
     },
