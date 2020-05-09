@@ -187,3 +187,90 @@ app.post('/student/getAttendance',(req,res)=>{
             }
         })
 })
+
+
+//student complaint entry
+
+const {Complaints} = require('./complaint');
+
+app.post('/student/complaint', (req,res)=>{
+
+    let complaint = new Complaints(req.body);
+
+    complaint.save((err,doc)=>{
+        if(err)
+        {
+            res.send("Error")
+        }
+        else
+        {
+            res.send(doc);
+        }
+    })
+
+})
+
+
+//student view complaint
+
+app.post('/student/viewComplaints',(req,res)=>{
+
+    Complaints.find({'rollno':req.body.rollno},(err,doc)=>{
+        if(err)
+        {
+            res.send("Error")
+        }
+        else
+        {
+            res.send(doc);
+        }
+    })
+})
+
+
+//admin view attendance
+
+app.post('/admin/viewAttendance',(req,res)=>{
+
+    Attendance.find({'date':req.body.date},(err,doc)=>{
+        if(err)
+        {
+            res.send("Error");
+        }
+        else
+        {
+            res.send(doc);
+        }
+    })
+})
+
+
+//admin view complaint
+
+app.post('/admin/viewComplaint',(req,res)=>{
+    Complaints.find((err,docs)=>{
+        if(err)
+            res.send("Error")
+        else
+            res.send(docs)
+    })
+
+})
+
+
+
+//admin edit complaint
+
+app.post('/admin/editComplaint',(req,res)=>{
+
+    Complaints.findByIdAndUpdate({'_id':req.body._id},{$set : {'status':'Solved Issue'}},(err,docs)=>{
+        if(err)
+        {
+            res.send(err);
+        }
+        else
+        {
+            res.send(docs);
+        }
+    })
+})
