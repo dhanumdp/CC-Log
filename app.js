@@ -36,6 +36,7 @@ app.post('/student/register',(req,res)=>{
     let user={
         Name : req.body.Name.toUpperCase(),
         Roll_No : req.body.Roll_No.toUpperCase(),
+        Email : req.body.email,
         Password : req.body.Password
     }
 
@@ -274,3 +275,6 @@ app.post('/admin/editComplaint',(req,res)=>{
         }
     })
 })
+
+const password = require('./changePasswordRoutes');
+app.use('/forgotpassword',password);
