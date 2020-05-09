@@ -26,7 +26,7 @@ function mailsend(userDetail){
                
       const mailOptions = {
         from: 'cclabmca@gmail.com', // sender address
-        to: userDetail.Mail, // list of receivers
+        to: "dhanumca3748@gmail.com", // list of receivers
         subject: "MXCC - Forgot Your Password ?", 
         html:"<h4> Hai "+userDetail.Name+" Forgot Your Password? No Worries, We have got you recovered.</h4> <h2> <br> This is your Code "+code+"</h2> <br><h5><i>If you didn't make this request, or made it by mistake, please ignore this mail. Your Password will remain as it was.</h5></i>"
     };
@@ -51,17 +51,17 @@ function mailsend(userDetail){
 
                 
                 const rollno = req.body.rollno;
-                const mail = req.body.mmail;
+                const mail = req.body.email;
             
                 var collection= mongoose.connection.db.collection('Users');
                 collection.findOne({ 'Roll_No':rollno }, (err,doc)=>{
                     if(err)
-                        res.json({success : false, message : "Error in retrieving student details"});
+                        res.send({success : false, message : "Error in retrieving student details"});
                     else    
                     {
                     if(!doc)
                     {
-                        res.json({success : false, message : "Wrong Roll No"});
+                        res.send({success : false, message : "Wrong Roll No"});
                     } 
                     else
                     {
@@ -98,18 +98,18 @@ function mailsend(userDetail){
                 collection.findOne({'Roll_No':rollno}, (err,doc)=>{
                     if(err)
                     {
-                        res.json({success : false, message : "Error in Initiating Password Change"});
+                        res.send({success : false, message : "Error in Initiating Password Change"});
                     }
                     else
                     {
                         collection.update({'Roll_No':rollno},{$set : {'Password': password}}, (error,result)=>{
                             if(error)
                             {
-                                res.json({success : false, message : "Error in Changing Password"});
+                                res.send({success : false, message : "Error in Changing Password"});
                             }
                             else
                             {
-                                res.json({success : true, message : "Password Changed"});
+                                res.send({success : true, message : "Password Changed"});
                             }
                         })
                     }
@@ -131,12 +131,12 @@ function mailsend(userDetail){
                 var collection= mongoose.connection.db.collection("Admins");
                 collection.findOne({ 'username':username }, (err,doc)=>{
                     if(err)
-                        res.json({success : false, message : "Error in retrieving Alumni details"});
+                        res.send({success : false, message : "Error in retrieving Admin details"});
                     else    
                     {
                     if(!doc)
                     {
-                        res.json({success : false, message : "Wrong Username"});
+                        res.send({success : false, message : "Wrong Username"});
                     } 
                     else
                     {
@@ -147,12 +147,12 @@ function mailsend(userDetail){
                                 "Mail":doc.email
                             }
                             const RecievedCode = mailsend(user);
-                            res.json({success : true, message : "Please Check your Mail Inbox and Enter the Code below", code : RecievedCode} );
+                            res.send({success : true, message : "Please Check your Mail Inbox and Enter the Code below", code : RecievedCode} );
                               
                             }
                             else
                             {
-                                res.json({success : false, message : "This Mail is not Updated in your Profile"});
+                                res.send({success : false, message : "This Mail is not Updated in your Profile"});
                             }
                     }
                     
@@ -177,18 +177,18 @@ function mailsend(userDetail){
                 collection.findOne({'username ':username}, (err,doc)=>{
                     if(err)
                     {
-                        res.json({success : false, message : "Error in Initiating Password Change"});
+                        res.send({success : false, message : "Error in Initiating Password Change"});
                     }
                     else
                     {
                         collection.update({'username':username},{$set : {'password': password}}, (error,result)=>{
                             if(error)
                             {
-                                res.json({success : false, message : "Error in Changing Password"});
+                                res.send({success : false, message : "Error in Changing Password"});
                             }
                             else
                             {
-                                res.json({success : true, message : "Password Changed"});
+                                res.send({success : true, message : "Password Changed"});
                             }
                         })
                     }
