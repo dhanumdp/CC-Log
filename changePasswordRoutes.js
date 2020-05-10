@@ -72,7 +72,7 @@ function mailsend(userDetail){
                                 "Mail":doc.Email
                             }
                             const RecievedCode = mailsend(user);
-                            res.send({success : true, message : "Please Check your Mail Inbox and Enter the Code below", code : RecievedCode});
+                            res.send({success : true, message : "Please Check your Mail Inbox/Spam  and Enter the Code below", code : RecievedCode});
                             
                             }
                             else
