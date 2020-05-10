@@ -26,7 +26,7 @@ function mailsend(userDetail){
                
       const mailOptions = {
         from: 'cclabmca@gmail.com', // sender address
-        to: "dhanumca3748@gmail.com", // list of receivers
+        to: userDetail.Mail, // list of receivers
         subject: "MXCC - Forgot Your Password ?", 
         html:"<h4> Hai "+userDetail.Name+" Forgot Your Password? No Worries, We have got you recovered.</h4> <h2> <br> This is your Code "+code+"</h2> <br><h5><i>If you didn't make this request, or made it by mistake, please ignore this mail. Your Password will remain as it was.</h5></i>"
     };
