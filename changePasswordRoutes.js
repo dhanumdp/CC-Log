@@ -92,7 +92,7 @@ function mailsend(userDetail){
 
                 
                 const rollno = req.body.rollno;
-                const mail = req.body.mail;
+        
                 const password = req.body.password;
                 var collection= mongoose.connection.db.collection('Users');
                 collection.findOne({'Roll_No':rollno}, (err,doc)=>{
