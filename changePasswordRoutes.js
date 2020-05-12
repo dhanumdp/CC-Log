@@ -148,19 +148,13 @@ function mailsend(userDetail){
                             }
                             const RecievedCode = mailsend(user);
                             res.send({success : true, message : "Please Check your Mail Inbox and Enter the Code below", code : RecievedCode} );
-                              
                             }
                             else
                             {
                                 res.send({success : false, message : "This Mail is not Updated in your Profile"});
                             }
-                    }
-                    
-                    
-                        
-                    }
-                
-                        
+                    }    
+                    }     
                 })
             })
 

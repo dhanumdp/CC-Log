@@ -1,12 +1,28 @@
 var express=require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var cors=require('cors')
 var app=express();
 var port = process.env.PORT || 3000;
 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
+
+app.use(cors({
+    origin : ['http://localhost:4200','*']
+}));
+
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, HEAD, OPTIONS, PUT, PATCH, DELETE");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Request-With, x-access-token, x-refresh-token, Content-Type, Accept, _id");
+    res.header("Access-Control-Expose-Headers", "x-access-token, x-refresh-token");
+    res.header("Access-Control-Allow-Credentials", true);
+    next();
+});
+
+
 mongoose.connect('mongodb+srv://dhanumdp:mcadhanu@dhanumdp-brslm.mongodb.net/MXCC?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology:true }, (err)=>{
         if(!err)
         {
@@ -293,3 +309,5 @@ app.post('/admin/editComplaint',(req,res)=>{
 
 const password = require('./changePasswordRoutes');
 app.use('/forgotpassword',password);
+const adminRoutes = require('./adminRoutes');
+app.use('/admin',adminRoutes);
