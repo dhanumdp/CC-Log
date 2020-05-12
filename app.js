@@ -48,19 +48,30 @@ app.post('/student/register',(req,res)=>{
             }
             else
             {
-                collection.insertOne(user,(error,userDetail)=>{
-                        if(!error)
+                collection.find({'Email':user.Email}).count((error,us)=>{
+                        if(us !=0)
                         {
-                            res.json(user.Roll_No+' Registered Successfully');
-                            console.log(user.Roll_No+' Registered Successfully');
-                           // console.log(userDetail);
+                            res.json('Already one User registered with this '+user.Email);
                         }
                         else
                         {
-                            res.send('Registration Error'+err);
-                            console.log('Registration Error'+err);
+                            collection.insertOne(user,(error,userDetail)=>{
+                                if(!error)
+                                {
+                                    res.json(user.Roll_No+' Registered Successfully');
+                                    console.log(user.Roll_No+' Registered Successfully');
+                                   // console.log(userDetail);
+                                }
+                                else
+                                {
+                                    res.send('Registration Error'+err);
+                                    console.log('Registration Error'+err);
+                                }
+                        })
                         }
                 })
+                
+               
             }
     })
 
