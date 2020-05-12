@@ -43,7 +43,8 @@ app.post('/student/register',(req,res)=>{
     collection.find({'Roll_No':user.Roll_No}).count((err,num)=>{
             if(num != 0)
             {
-                res.json(user.Roll_No+' Already Registered.')
+               
+                res.send({success:false, message:user.Roll_No+' User Already Registered'})
                 console.log('Student Already Registered.')
             }
             else
@@ -51,20 +52,23 @@ app.post('/student/register',(req,res)=>{
                 collection.find({'Email':user.Email}).count((error,us)=>{
                         if(us !=0)
                         {
-                            res.json('Already one User registered with this '+user.Email);
+                            //res.json('Already one User registered with this '+user.Email);
+                            res.send({success:false, message : 'Already one User registered with '+user.Email})
                         }
                         else
                         {
                             collection.insertOne(user,(error,userDetail)=>{
                                 if(!error)
                                 {
-                                    res.json(user.Roll_No+' Registered Successfully');
+                                    res.send({success:true, message : user.Roll_No+' Registered Successfully'})
+                        
+
                                     console.log(user.Roll_No+' Registered Successfully');
                                    // console.log(userDetail);
                                 }
                                 else
                                 {
-                                    res.send('Registration Error'+err);
+                                    res.send({success:false , message : "Registration Error"})
                                     console.log('Registration Error'+err);
                                 }
                         })
