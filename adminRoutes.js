@@ -132,7 +132,7 @@ router.post('/getAttendanceList',(req,res)=>{
 
 //get Complaints
 
-router.post('/getComplaintList',(req,res)=>{
+router.get('/getComplaintList',(req,res)=>{
     var collection = mongoose.connection.db.collection('Complaints');
  
         
