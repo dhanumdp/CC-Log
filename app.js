@@ -307,6 +307,22 @@ app.post('/admin/editComplaint',(req,res)=>{
     })
 })
 
+
+
+//changing password
+
+router.post('/student/changePassword',(req,res)=>{
+
+    var collection = mongoose.connection.db.collection('Users');
+   
+    collection.findOneAndUpdate({'Roll_No':req.body.rollno},{$set :{'Password':req.body.password} }).then(()=>{
+        res.send({success:true, message : 'Password Changed Successfully'})
+    }).catch((err)=>{
+        res.send({success:false, message:"Password Not Changed"})
+    })
+
+})
+
 const password = require('./changePasswordRoutes');
 app.use('/forgotpassword',password);
 const adminRoutes = require('./adminRoutes');
