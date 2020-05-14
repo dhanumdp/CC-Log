@@ -1,0 +1,119 @@
+[33mcommit 6c24af481fabca551a22e9b6a24a033d6368d11c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Thu May 14 12:47:38 2020 +0530
+
+    Change Password API Added
+
+[33mcommit b2f0f97872ca796841260c69da9f0075a097a30a[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Wed May 13 23:06:53 2020 +0530
+
+    API Finished
+
+[33mcommit 177f8e2a4a5526e3815b14071bef4a8964d5a7ca[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Wed May 13 13:50:46 2020 +0530
+
+    Backend API Over
+
+[33mcommit f89561a4218d13bc0dd37131dc05845ee0aedc9e[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Wed May 13 02:44:13 2020 +0530
+
+    Admin Backend Started
+
+[33mcommit 354c1b220499958a04d04b5a2816afb45affa3b0[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Tue May 12 11:53:34 2020 +0530
+
+    Registration Response Changed
+
+[33mcommit 5e97ab90d1c29d207e8a926b543c83f7694fe651[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Tue May 12 11:40:34 2020 +0530
+
+    Unique Mail Id
+
+[33mcommit 78cbf98dec10ab4c6869a8ac34a1cbf1341f950f[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Mon May 11 23:18:57 2020 +0530
+
+    Change Password Bug
+
+[33mcommit b377f85dda713f8c6c701511f86503139e24077d[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Sun May 10 16:29:39 2020 +0530
+
+    Forgot Password Response
+
+[33mcommit 0c81e41c8e7414e89b392a596b6d943723166af6[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Sun May 10 16:26:57 2020 +0530
+
+    Forgot Password Bug
+
+[33mcommit 12795da565f8eda914517354a60fa6820b856356[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Sun May 10 04:50:53 2020 +0530
+
+    Forget Password API
+
+[33mcommit d8b24e7cbf4034328ce4d2e14ef813e95a6d90ef[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Sun May 10 02:35:18 2020 +0530
+
+    Email Added for Forgot Password API
+
+[33mcommit 159946d26b0dc3dc15d385074839deec742d1789[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Sat May 9 20:14:09 2020 +0530
+
+    Complaint Backend Done
+
+[33mcommit 6e577e358009509ba8ebd2ad3510483cc0437753[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Thu May 7 02:55:02 2020 +0530
+
+    Reason Added in Attendance
+
+[33mcommit b30d5afef14b668489335e3ab333c96016253e9e[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Thu May 7 02:11:17 2020 +0530
+
+    Get Attendance
+
+[33mcommit 69ed9077ea9dbba50900d74356c323f267593902[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Thu May 7 00:14:09 2020 +0530
+
+    Getting Attendance
+
+[33mcommit 2648607f72418cbfe3752cf3162dda6b9cdd62e8[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Wed May 6 01:45:28 2020 +0530
+
+    Getting Details
+
+[33mcommit f5d50057456e994a6529c1795523532324337f9d[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Wed May 6 01:22:44 2020 +0530
+
+    Getting Name
+
+[33mcommit 8983502b1d4d365455b5a9db2b6c9a7c3fefc132[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Fri May 1 03:05:35 2020 +0530
+
+    Attendance Entry Done
+
+[33mcommit 53a14fb2b3acace215f71ea6c0172605b2ae4f57[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Wed Apr 22 12:55:45 2020 +0530
+
+    Response Changed
+
+[33mcommit 194dbb97f6c8d23739f2673fbdb29ecc9005dc5b[m
+Author: Dhanu <dhanumca3748@gmail.com>
+Date:   Wed Apr 8 22:16:43 2020 +0530
+
+    Hosting Done in Heroku

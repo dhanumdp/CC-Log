@@ -311,7 +311,7 @@ app.post('/admin/editComplaint',(req,res)=>{
 
 //changing password
 
-router.post('/student/changePassword',(req,res)=>{
+app.post('/student/changePassword',(req,res)=>{
 
     var collection = mongoose.connection.db.collection('Users');
    
