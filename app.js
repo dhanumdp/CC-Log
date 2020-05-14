@@ -316,9 +316,9 @@ app.post('/student/changePassword',(req,res)=>{
     var collection = mongoose.connection.db.collection('Users');
    
     collection.findOneAndUpdate({'Roll_No':req.body.rollno},{$set :{'Password':req.body.password} }).then(()=>{
-        res.send({success:true, message : 'Password Changed Successfully'})
+        res.send("Success")
     }).catch((err)=>{
-        res.send({success:false, message:"Password Not Changed"})
+        res.send("Failed")
     })
 
 })
